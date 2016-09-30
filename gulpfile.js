@@ -1,0 +1,106 @@
+var autoprefix = require("gulp-autoprefixer"),
+    connect = require("gulp-connect"),
+    gulp = require('gulp'),
+    param = require('gulp-param')(gulp, process.argv),
+    gutil = require('gulp-util'),
+    rename = require('gulp-rename'),
+    log = require('gulp-log'),
+    filter = require('gulp-filter'),
+    sicon = require('./scripts/icon'),
+    buffer = require('gulp-buffer'),
+    watch = require('gulp-watch'),
+    path = require('path'),
+    fs = require('fs'),
+    sourcemaps = require('gulp-sourcemaps'),
+    sass = require("gulp-sass");
+
+var paths = {
+    scss: [
+        "./scss/*.scss",
+        "./scss/**/*.scss",
+    ]
+};
+
+function handleSassError(err) {
+    gutil.log(gutil.colors.red('sass error\r\n'), gutil.colors.yellow(err.message));
+    this.emit('end');
+}
+
+gulp.task("sass", function() {
+    
+    var includePaths = [
+        path.resolve(__dirname, "scss"),
+    ];
+// console.log(includePaths);
+    return gulp.src(paths.scss)
+        // .pipe(sourcemaps.init())
+        .pipe(sass({ includePaths: includePaths}))
+        // .pipe(sourcemaps.write('./dist/css/app.css'))
+        // .pipe(sourcemaps.write())
+        .on('error', handleSassError)
+        // .pipe(autoprefix("last 2 versions"))
+        .pipe(gulp.dest("./dist/css"))
+        // .pipe(connect.reload()) // 不监视了
+        ;
+});
+
+gulp.task("connect", function() {
+    connect.server({
+        root: "dist",
+        port: 8000,
+        livereload: true
+    });
+});
+
+function makeIconSassTask (name) {
+    return function () {
+        var item = sicon.resolve(name);
+        // var cssFilter = filter('*.css', { restore: true });
+        // var fontFilter = filter(['.eot', '.svg', '.ttf', '.woff', '.woff2'], { restore: true });
+        return gulp.src(item.cssFile)
+                .pipe(rename(function (path) {
+                    path.basename = '_icons-' + path.basename;
+                    path.extname = ".scss"
+                }))
+                .pipe(buffer())
+                .pipe(sicon.gulpContentFilter(function (file) {
+                    file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
+                }))
+                .pipe(gulp.dest("./scss/components/icons/"))
+            ;
+    }
+}
+
+function makeIconFontTask (name) {
+    return function () {
+        var item = sicon.resolve(name);
+        return gulp.src(item.fontsDir)
+                .pipe(gulp.dest("./fonts/"))
+            ;
+    }
+}
+
+['photon', 'font-awesome'].forEach(function (it) {
+    gulp.task("icon-" + it + '-sass', makeIconSassTask(it));
+    gulp.task("icon-" + it + '-font', makeIconFontTask(it));
+});
+
+gulp.task("icon-photon", ["icon-photon-sass", "icon-photon-font"]);
+gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-font"]);
+
+// 更新图标库
+gulp.task("icons", ["icon-font-awesome", "icon-photon"]);
+
+gulp.task("fonts", function(){
+    return gulp.src('./fonts/*').pipe(gulp.dest("./dist/fonts"));
+});
+
+gulp.task("dev", ["fonts"], function() {
+    // gulp.start("connect");
+    gulp.start("sass");
+    watch(paths.scss, function(){
+        gulp.start('sass');
+    });
+});
+
+gulp.task("default", ['sass', 'fonts']);
