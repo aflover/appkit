@@ -1,0 +1,57 @@
+@import "mixins/make-icons.scss";
+
+//@VAR icon
+$icon-class              : '.#{$default-prefix}icon' !default;
+$icon-default-bd-color   : $default-bd-color !default;
+$icon-inline-margin         : 5px !default;                             // inline边距
+$icon-inline-selector       : span !default;                            // inline兄弟选择器
+//!VAR icon
+
+// @mixin make-base-icon-meta() {
+
+    // inline图标样式,
+    #{$icon-class}-meta { // 按钮内嵌inline风格的IOCN
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        height: 1em;
+        width: 1.15em; // 近正方形, 会造成 after内元素的 宽度比高度大
+        margin-left: $icon-inline-margin;
+    }
+
+    // 特殊icon 容器
+    #{$icon-class}-wrap,
+    #{$icon-class}-caret,
+    #{$icon-class}-right,
+    #{$icon-class}-arrow, {
+        @include make-icon-wrap;
+    }
+    
+    // 垂直三角
+    #{$icon-class}-caret {
+        &:after { 
+            @include make-icon-caret($icon-default-bd-color);
+        }
+    }
+    // 对号
+    #{$icon-class}-right {
+        &:after {
+            @include make-icon-right($icon-default-bd-color);
+        }
+    }
+    // 下箭头
+    #{$icon-class}-arrow {
+        &:after {
+            @include make-icon-arrow($icon-default-bd-color);
+        }
+    }
+    // 关闭
+    #{$icon-class}-close {
+        @include make-icon-close($icon-default-bd-color);
+    }
+    // 三角箭头翻转
+    .is-open {
+        #{$icon-class}-caret:after { transform: rotate(180deg) translateY(50%); }
+        #{$icon-class}-arrow:after { transform: rotate(-133deg) translateX(-40%) translateY(-29%); }
+    }
+// }

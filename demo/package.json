@@ -1,0 +1,9 @@
+{
+  "name": "appkit-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "cross-env APP_STATIC_URL=http://localhost:9090 electron ."
+  }
+}

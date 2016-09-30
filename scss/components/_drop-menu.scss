@@ -1,0 +1,104 @@
+@import "components-mixins/_size-control.scss";
+@import "mixins/clearfix";
+@import "mixins/make-icons.scss";
+
+//@VAR menu
+$menu-class				: '.#{$default-prefix}drop-menu' !default;
+$menu-item-class		: '.drop-menu-item' !default;
+
+$menu-bd-radius			: $default-bd-radius !default;
+$menu-bd-color			: $default-bd-color !default;
+$menu-bg-color			: $default-bg-color !default;
+$menu-item-active-bg-color			: $default-active-bg-color !default;
+$menu-item-hover-bg-color			: $default-hover-bg-color !default;
+$menu-item-disabled-bg-color		: $default-disabled-bg-color !default;
+$menu-active-cursor		: $default-active-cursor !default;
+$menu-padding			: 5px !default;
+$menu-item-padding		: 1.5em !default;
+
+$menu-base-zindex					: $default-base-zindex !default;
+$menu-arrow-bd-color				: $default-bd-color !default;
+
+//!VAR menu
+
+// @mixin make-base-menu() {	
+	// 菜单项
+	#{$menu-item-class} {
+		@include make-size-default;
+		position: relative;
+		white-space: nowrap;
+		user-select: none;
+		-webkit-user-select: none;
+		cursor: $menu-active-cursor;
+		background-color: $menu-bg-color;
+		padding-left: $menu-item-padding;
+		padding-right: $menu-item-padding;		
+		&:focus,
+		&:hover {
+			background-color: $menu-item-hover-bg-color;
+		}
+		&.is-active {
+			background-color: $menu-item-active-bg-color;
+		}
+		&.is-checked {
+			padding-right: max($menu-item-padding, 2em);
+			 &::before { // 选中
+				@include make-icon-right($menu-bd-color);
+				top: .5em;
+				right: .5em;
+			}
+		}
+		&.is-disabled {
+			cursor: default;
+			color: darken($menu-item-disabled-bg-color, 30);
+			background-color: transparent;
+		}
+		&.is-sub {
+			&:hover {
+				> #{$menu-class} {
+					display: block;
+				}
+			}
+			&::after {
+				border: .3em solid transparent;
+				border-top-color: darken($menu-arrow-bd-color, 20);  // 右箭头
+				position: absolute;
+				top: 40%;
+				right: .15em;
+				content: '';
+				transform: rotate(-90deg);
+			}
+			> #{$menu-class} {
+				min-width: auto;
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 100%;
+				margin-left: -.25em;
+				z-index: $menu-base-zindex;
+			}
+			&.is-disabled {
+				&::after {
+					border-top-color: darken($menu-item-disabled-bg-color, 20);
+				}
+				> #{$menu-class} {
+					display: none;
+				}
+			}
+		}
+	}
+	// 菜单列表容器
+	#{$menu-class} {
+		// 容器
+		background-color: $menu-bg-color;
+		border-radius : $menu-bd-radius;
+		border: 1px solid $menu-bd-color;
+		// 列表
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		padding: $menu-padding 0 ;
+		// 阴影
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	}
+// }

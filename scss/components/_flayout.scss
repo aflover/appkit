@@ -1,0 +1,25 @@
+
+// @mixin make-falyout() {
+	.flayout-col,
+	.flayout-row {
+		display: flex;
+		justify-content: space-between;
+		>.flayout-content {
+			flex: 1;
+			overflow-y: auto;
+		}
+		>.flayout-header {
+
+		}
+		>.flayout-footer {
+
+		}
+	}
+	.flayout-row {
+		flex-direction: row;
+		flex: 1 0 0;
+	}
+	.flayout-col {
+		flex-direction: column;
+	}
+// }

@@ -1,0 +1,59 @@
+@import "components-mixins/_size-control.scss";
+@import "mixins/clearfix";
+
+//@VAR nav-group
+$nav-group-class				: '.#{$default-prefix}nav-group' !default;
+$nav-group-item-class			: '.nav-group-item' !default;
+
+$nav-group-bd-radius			: $default-bd-radius !default;
+$nav-group-bd-color				: $default-bd-color !default;
+$nav-group-bg-color				: $default-bg-color !default;
+$nav-group-item-active-bg-color			: $default-active-bg-color !default;
+$nav-group-item-hover-bg-color			: $default-hover-bg-color !default;
+$nav-group-item-disabled-bg-color		: $default-disabled-bg-color !default;
+$nav-group-active-cursor		: $default-active-cursor !default;
+$nav-group-padding				: 5px !default;
+$nav-group-item-padding			: 2em !default;
+$nav-group-title-color					: #666 !default;
+
+//!VAR nav-group
+
+// @mixin make-nav-group() {
+	// 列表项
+	#{$nav-group-item-class} {
+		@include make-size-default;
+		position: relative;
+		white-space: nowrap;
+		user-select: none;
+		-webkit-user-select: none;
+		display: block;
+		cursor: $nav-group-active-cursor;
+		background-color: $nav-group-bg-color;
+		padding-left: $nav-group-item-padding;
+		padding-right: $nav-group-item-padding / 2;		
+	    text-decoration: none;
+	    color: inherit;
+		
+		&:active,
+		&.router-link-active,
+		&.is-active {
+			background-color: $nav-group-item-active-bg-color;
+		}
+	}
+	// 菜单列表容器
+	#{$nav-group-class} {
+		// 容器
+		background-color: $nav-group-bg-color;
+		// 列表
+		list-style: none;
+		margin: 0;
+		padding: $nav-group-padding 0 ;
+
+		> .nav-title {
+			@include make-size-default;
+			display: block;
+			cursor: default;
+			color: $nav-group-title-color;
+		}
+	}
+// }

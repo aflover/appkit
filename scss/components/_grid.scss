@@ -1,0 +1,44 @@
+@import "mixins/_make-grid.scss";
+
+@mixin make-grid-cols($grid-columns, $gutter) {
+	$grid_cols: ();
+	@for $i from 1 through $grid-columns {
+		$grid_cols: append($grid_cols, '.grid-col-#{$i}' , comma);
+		.grid-col-#{$i} {
+		    display: block;
+		    box-sizing: border-box;
+		    width: percentage(($i / $grid-columns));
+		}
+		.grid-offset-#{$i} {
+		    margin-left: percentage(($i / $grid-columns));
+		}
+	}
+	#{$grid_cols} {
+		float: left;
+		position: relative;
+		box-sizing: border-box;
+		min-height: 1px;
+		padding-right: ($gutter / 2);
+		padding-left:  ($gutter / 2);
+	}
+}
+
+//@VAR grid
+$grid-row-class				: '.#{$default-prefix}grid-row' !default;
+$grid-row-flex-class		: '.#{$default-prefix}grid-row-flex' !default;
+$grid-gutter-width			: 0 !default;
+$grid-size					: 12 !default;
+//!VAR grid
+
+// @mixin make-base-grid() {
+	// float 布局
+	#{$grid-row-class} {
+		@include make-grid-row($grid-gutter-width);
+	}
+	// flex 布局
+	#{$grid-row-flex-class} {
+		@include make-grid-row-flex;
+	}
+	// 格子
+	@include make-grid-cols($grid-size, $grid-gutter-width);
+// }

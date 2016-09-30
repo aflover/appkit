@@ -1,0 +1,36 @@
+//@VAR dropdown
+
+$dropdown-class				: '.#{$default-prefix}dropdown' !default;
+$dropdown-view-class		: '.dropdown-view' !default;
+
+//!VAR dropdown
+
+// @mixin make-base-dropdown() {	
+	// 菜单弹出容器
+	#{$dropdown-class}	{
+		position: relative;
+		display: inline-block;
+		> #{$dropdown-view-class} {
+			position: absolute;
+			z-index: 1000;
+			top: 100%;
+			min-width: 100%;
+			margin-top: -1px;
+			box-sizing: border-box;
+			text-align: left;
+			visibility: hidden;
+			opacity: 0;
+		}
+		&.is-drop-right {
+			> #{$dropdown-view-class} {
+				right: 0;
+			}
+		}
+		&.is-open {
+			> #{$dropdown-view-class} {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+// }
