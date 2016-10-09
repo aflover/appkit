@@ -14,6 +14,7 @@ $select-disabled-bg-color		: $default-disabled-bg-color !default;
 		border-radius: $select-bd-radius;
 		outline: none;
 		vertical-align: middle;
+		box-sizing: border-box;
 		&:hover,
 		&:focus {
 			background-color: lighten($select-bd-color, 20);
@@ -30,9 +31,10 @@ $select-disabled-bg-color		: $default-disabled-bg-color !default;
 	.label-select {
 		display: inline-block;
 		position: relative;
+		box-sizing: border-box;
 		&::after {
-			border: .3em solid transparent;
-			border-top-color: darken($select-bd-color, 30);
+			border: .4em solid transparent;
+			border-top-color: $select-bd-color;
 			position: absolute;
 			top: 40%;
 			right: .5em;

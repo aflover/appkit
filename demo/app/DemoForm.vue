@@ -1,19 +1,28 @@
 <template>
 	<div>
-		<radio-group :options="radioOptions" v-model="radioModel"></radio-group>
-		<check-box v-model="checkModel">
-			<icon icon="fa-list"></icon>
-		</check-box>
-		<br/>
-		<br/>
-		<br/>
-
-		<btn>Hello</btn>
-		<pure-input v-model="inputModel"></pure-input>
-		<pure-select v-model="selectModel" :options="selectOptions"></pure-select>
-		单选 <drop-select :options="selectOptions" v-model="selectModel"></drop-select>
-		菜单 <drop-menu :options="menuItems" @select="selectMenu" text="下拉菜单" :auto-close="false"></drop-menu>
-		<br/>
+		<form-control text="姓名">
+			<pure-input v-model="inputModel" placeholder="请输入姓名"></pure-input>
+		</form-control>
+		<form-control text="姓别">
+			<radio-group :options="radioOptions" v-model="radioModel"></radio-group>
+		</form-control>
+		<form-control text="爱好">
+			<div class="check-group">
+				<check-box>篮球</check-box>
+				<check-box>足球</check-box>
+				<check-box>气球</check-box>
+			</div>
+		</form-control>
+		<form-control text="出生地">
+			<drop-menu :options="menuItems" @select="selectMenu" text="请选择" :auto-close="false"></drop-menu>
+		</form-control>
+		<form-control text="国籍">
+			<drop-select v-model="selectModel" :options="selectOptions"></drop-select>
+			<pure-select v-model="selectModel" :options="selectOptions"></pure-select>
+		</form-control>
+		<form-control>
+			<btn>提交</btn>
+		</form-control>
 	</div>
 </template>
 
@@ -28,6 +37,7 @@
 	import Btn from '../../components/Btn.vue'
 	import DropSelect from '../../components/DropSelect.vue'
 	import DropMenu from '../../components/DropMenu.vue'
+	import FormControl from '../../components/FormControl.vue'
 
 	export default {
 		  data () {
@@ -35,10 +45,10 @@
 		        checkModel: true,
 		      	radioModel: 'val1',
 				radioOptions: [
-					{text: 'radio1', value:'val1'},
-					{text: 'radio2', value:'val2'},
+					{text: '男性', value:'male'},
+					{text: '女性', value:'female'},
 				],
-				inputModel: 'inputVal',
+				inputModel: '',
 				selectModel: '',
 				selectOptions: [
 					{text: 'select1', value:'val1'},
@@ -82,6 +92,7 @@
 		  	Btn,
 		  	DropSelect,
 		  	DropMenu,
+		  	FormControl,
 		  }
 	}
 </script>

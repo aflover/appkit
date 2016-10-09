@@ -1,7 +1,7 @@
 <template>
 	<flex-window>
 		<flayout id="navbar">
-			<div slot="header">User Profile</div>
+			<div slot="header" id="nav_header">vue-appkit</div>
 			<div id="navmenu">
 				<nav-group v-for="nav in navs" :title="nav.title" :routers="nav.routers"></nav-group>
 			</div>
@@ -51,5 +51,12 @@
 		border-right: 1px solid #ddd;
 		min-width: 150px;
 		padding: 5px;
+	}
+
+	#nav_header {
+		font-weight: bold;
+	    text-align: center;
+	    padding: 10px;
+	    font-size: 1.5em;
 	}
 </style>

@@ -36,7 +36,7 @@
 					{ title:'标签4', value: "label4"},
 				],
 				tab: 'label1',
-				offseted: true,
+				offseted: false,
 				titled: true,
 				bordered: true,
 				flex: false,

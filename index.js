@@ -15,6 +15,7 @@ import PureSelect from './components/PureSelect.vue'
 import RadioGroup from './components/RadioGroup.vue'
 import SimpleTab from './components/SimpleTab.vue'
 import SimpleTable from './components/SimpleTable.vue'
+import FormControl from './components/FormControl.vue'
 
 export default {
 	Btn,
@@ -34,4 +35,5 @@ export default {
 	RadioGroup,
 	SimpleTab,
 	SimpleTable,
+	FormControl,
 }

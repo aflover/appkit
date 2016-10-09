@@ -12,6 +12,8 @@ $check-disabled-bg-color		: $default-disabled-bg-color !default;
 		position: relative;
 		display: inline-block;
 		@include make-size-default;
+		user-select: none;
+		-webkit-user-select: none;
 		> input {
 			margin: 0 8px 0 0;
 			padding: 0;
@@ -41,8 +43,6 @@ $check-disabled-bg-color		: $default-disabled-bg-color !default;
 			}
 		}
 		> .check-text {
-			user-select: none;
-			-webkit-user-select: none;
 			&::before {
 				box-sizing: content-box;
 				content: '';
@@ -69,6 +69,13 @@ $check-disabled-bg-color		: $default-disabled-bg-color !default;
 	        	transform: rotate(-52deg) scale(0.7) translateX(-1px) translateY(-1px);
 	        	opacity: 0;
 	        }
+		}
+	}
+	.check-group {
+		@include clearfix;
+		> #{$check-class} {
+			float: left;
+			margin-right: .5em;
 		}
 	}
 // }

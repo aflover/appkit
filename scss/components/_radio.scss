@@ -12,6 +12,8 @@ $radio-disabled-bg-color	: $default-disabled-bg-color !default;
 		position: relative;
 		display: inline-block;
 		@include make-size-default;
+		user-select: none;
+		-webkit-user-select: none;
 		> input {
 			margin: 0 8px 0 0;
 			padding: 0;
@@ -37,8 +39,6 @@ $radio-disabled-bg-color	: $default-disabled-bg-color !default;
 			}
 		}
 		> .radio-text {
-			user-select: none;
-			-webkit-user-select: none;
 			&::before,
 			&::after {
 				box-sizing: content-box;
@@ -57,6 +57,13 @@ $radio-disabled-bg-color	: $default-disabled-bg-color !default;
 	        &::after {
 	            transform: scale(0);
 	        }
+		}
+	}
+	.radio-group {
+		@include clearfix;
+		> #{$radio-class} {
+			float: left;
+			margin-right: .5em;
 		}
 	}
 // }
