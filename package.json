@@ -8,7 +8,8 @@
   "scripts": {
     "demo-release": "cd demo && cross-env NODE_ENV=production webpack --hide-modules",
     "demo": "cd demo && webpack-dev-server --inline --hot",
-    "start": "cd demo && npm start"
+    "demo-start": "cd demo && npm start",
+    "start": "npm-run-all -p demo demo-start"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -30,6 +31,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
     "node-sass": "^3.10.0",
+    "npm-run-all": "^3.1.0",
     "sass-loader": "^4.0.2",
     "sass-resources-loader": "^1.1.0",
     "url-loader": "^0.5.7",

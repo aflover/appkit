@@ -45,6 +45,12 @@
 					{text: 'select2', value:'val2'},
 					{text: '长一点的选项测试', value:'val3'},
 					{text: 'select4', value:'val4'},
+					{text: 'select5', value:'val5'},
+					{text: 'select6', value:'val6'},
+					{text: 'select7', value:'val7'},
+					{text: 'select8', value:'val8'},
+					{text: 'select9', value:'val9'},
+					{text: 'select10', value:'val10'},
 				],
 				menuItems: [
 					{text: 'menu1'},

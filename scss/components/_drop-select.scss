@@ -61,6 +61,9 @@ $drop-select-item-padding		: 1.5em !default;
 		list-style: none;
 		margin: 0;
 		padding: 0 ;
+		// 滚动
+		overflow-y: auto;
+		max-height: 15em;
 		// 阴影
 		box-shadow: 0 6px 12px rgba(0,0,0,.175);
 	}
