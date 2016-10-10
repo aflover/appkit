@@ -17,7 +17,7 @@ import SimpleTab from './components/SimpleTab.vue'
 import SimpleTable from './components/SimpleTable.vue'
 import FormControl from './components/FormControl.vue'
 
-export default {
+module.exports = {
 	Btn,
 	CheckBox,
 	Dropdown,
