@@ -1,5 +1,5 @@
 <template>
-	<i :class="[icon, meta && ('icon-meta ' + meta )]"></i>
+	<i :class="[icon, meta && ('icon-meta ' + meta ), theme && theme]"></i>
 </template>
 
 <script>
@@ -12,6 +12,10 @@
 			meta: {
 				type: String,
 				default: '',
+			},
+			theme: {
+				type: String,
+				default: ''
 			}
 		}
 	}

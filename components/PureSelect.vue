@@ -1,7 +1,7 @@
 <template>
 	<label class="label-select">
 		<select 
-			:class="['select']" 
+			:class="['select', theme && theme ]" 
 			:value="value" 
 			:disabled="disabled"
 			@change="$emit('input', $event.target.value)">
@@ -24,7 +24,11 @@
 			disabled: {
 				type: Boolean,
 				default: false,
-			}
+			},
+			theme: {
+				type: String,
+				default: '',
+			},
 		}
 	}
 </script>

@@ -1,27 +1,31 @@
 <template>
 	<div>
+		<theme-control v-model="theme"></theme-control>
 		<form-control text="姓名">
-			<pure-input v-model="inputModel" placeholder="请输入姓名"></pure-input>
+			<pure-input v-model="inputModel" placeholder="请输入姓名" :theme="theme"></pure-input>
+			<pure-input v-model="inputModel" placeholder="禁用" :theme="theme" :disabled="true"></pure-input>
 		</form-control>
 		<form-control text="姓别">
-			<radio-group :options="radioOptions" v-model="radioModel"></radio-group>
+			<radio-group :options="radioOptions" v-model="radioModel" :theme="theme"></radio-group>
 		</form-control>
 		<form-control text="爱好">
 			<div class="check-group">
-				<check-box>篮球</check-box>
-				<check-box>足球</check-box>
-				<check-box>气球</check-box>
+				<check-box :theme="theme" v-model="check1">篮球</check-box>
+				<check-box :theme="theme" v-model="check2">足球</check-box>
+				<check-box :theme="theme" v-model="check3" :disabled="true">气球</check-box>
+				<check-box :theme="theme" v-model="check4" :disabled="true">热气球</check-box>
 			</div>
 		</form-control>
 		<form-control text="出生地">
-			<drop-menu :options="menuItems" @select="selectMenu" text="请选择" :auto-close="false"></drop-menu>
+			<drop-menu :theme="theme" :options="menuItems" @select="selectMenu" text="请选择" :auto-close="false"></drop-menu>
 		</form-control>
 		<form-control text="国籍">
-			<drop-select v-model="selectModel" :options="selectOptions"></drop-select>
-			<pure-select v-model="selectModel" :options="selectOptions"></pure-select>
+			<drop-select :theme="theme" v-model="selectModel" :options="selectOptions"></drop-select>
+			<pure-select :theme="theme" v-model="selectModel" :options="selectOptions"></pure-select>
 		</form-control>
 		<form-control>
-			<btn>提交</btn>
+			<btn :theme="theme">提交</btn>
+			<btn>取消</btn>
 		</form-control>
 	</div>
 </template>
@@ -38,15 +42,18 @@
 	import DropSelect from '../../components/DropSelect.vue'
 	import DropMenu from '../../components/DropMenu.vue'
 	import FormControl from '../../components/FormControl.vue'
+	import ThemeControl from './ThemeControl.vue'
 
 	export default {
 		  data () {
 		    return {
 		        checkModel: true,
-		      	radioModel: 'val1',
+		      	radioModel: 'double',
 				radioOptions: [
 					{text: '男性', value:'male'},
 					{text: '女性', value:'female'},
+					{text: '变性', value:'', disabled: true},
+					{text: '双性', value:'double', disabled: true},
 				],
 				inputModel: '',
 				selectModel: '',
@@ -75,7 +82,12 @@
 					]},
 					{text: 'menu5', checked: true},
 					{text: 'menu6', disabled: true},
-				]
+				],
+				theme: '',
+				check1: false,
+				check2: true,
+				check3: false,
+				check4: true,
 		    }
 		  },
 		  methods: {
@@ -93,6 +105,7 @@
 		  	DropSelect,
 		  	DropMenu,
 		  	FormControl,
+		  	ThemeControl,
 		  }
 	}
 </script>

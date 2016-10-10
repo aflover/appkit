@@ -11,11 +11,11 @@
 			<slot name="default">
 				<btn>
 					<span>{{text}}</span>
-					<icon v-if="icon" :meta="icon"></icon>
+					<icon v-if="icon" :meta="icon" :theme="theme"></icon>
 				</btn>
 			</slot>
 		</span>
-		<ul :class="['drop-menu', 'dropdown-view']">
+		<ul :class="['drop-menu', 'dropdown-view', theme && theme]">
 			<menu-iter v-for="item in options" :item="item" :handle="select" :fields="fields"></menu-iter>
 		</ul>
 	</dropdown>
@@ -63,6 +63,10 @@
 			autoClose: {
 				type: Boolean,
 				default: true,
+			},
+			theme: {
+				type: String,
+				default: ''
 			}
 		},
 		data: function () {

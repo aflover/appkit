@@ -9,11 +9,11 @@
 			slot="control"
 			>
 			<span>{{displayText}}</span>
-			<icon :meta="arrow ? 'icon-arrow' : 'icon-caret'"></icon>
+			<icon :meta="arrow ? 'icon-arrow' : 'icon-caret'" :theme="theme"></icon>
 		</btn>
-		<ul :class="['drop-select', 'dropdown-view']">
+		<ul :class="['drop-select', 'dropdown-view', theme && theme]">
 			<li v-for="item in options"
-				@click=" select(item)"
+				@click="select(item)"
 				:class="['drop-select-item', 
 					item[fields.disabled] && 'is-disabled',
 					item[fields.value] === value && ( (active && 'is-active') || (check && 'is-checked') )]"
@@ -69,7 +69,11 @@
 			check: { // 是否显示check样式
 				type: Boolean,
 				default: true,
-			}
+			},
+			theme: {
+				type: String,
+				default: '',
+			},
 		},
 		data: function () {
 			return {

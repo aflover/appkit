@@ -33,9 +33,9 @@ $default-base-zindex				: 1000 !default;				// 默认zindex参考值
 
 // 主题颜色
 $default-theme-color : (
-	"primary": $default-primary-color,
-	"secondary": $default-secondary-color,
-	"warn": $default-warn-color,
-	"success": $default-success-color,
-	"error": $default-error-color,
+	"is-primary": $default-primary-color,
+	"is-secondary": $default-secondary-color,
+	"is-warn": $default-warn-color,
+	"is-success": $default-success-color,
+	"is-error": $default-error-color,
 ) !default;

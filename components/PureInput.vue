@@ -1,7 +1,7 @@
 <template>
 	<input 
 		:type="type" 
-		:class="['input']" 
+		:class="['input', theme && theme ]" 
 		:value="value" 
 		:disabled="disabled"
 		@change="$emit('input', $event.target.value)"
@@ -21,7 +21,11 @@
 			disabled: {
 				type: Boolean,
 				default: false,
-			}
+			},
+			theme: {
+				type: String,
+				default: '',
+			},
 		}
 	}
 </script>

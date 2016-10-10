@@ -1,10 +1,11 @@
 <template>
 	<div class="radio-group">
-		<label class="radio" v-for="opt in options">
+		<label :class="['radio', theme && theme]" v-for="opt in options">
 			<input type="radio"
 				:name="group"
 				:value="opt.value"
 				:checked="opt.value == value"
+				:disabled="opt.disabled"
 				@change="$emit('input', $event.target.value)"/>
 			<span class="radio-text">{{opt.text}}</span>
 		</label>
@@ -21,7 +22,11 @@
 			},
 			value: {
 				default: ''
-			}
+			},
+			theme: {
+				type: String,
+				default: '',
+			},
 		},
 		data: function () {
 			return {
