@@ -11,27 +11,13 @@
     "demo-start": "cd demo && npm start",
     "start": "npm-run-all -p demo demo-start"
   },
-  "devDependencies": {
+  "xdevDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-es2015": "^6.13.2",
-    "cross-env": "^1.0.6",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-buffer": "^0.0.2",
-    "gulp-connect": "^5.0.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-log": "^0.0.0",
-    "gulp-param": "^1.0.3",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
-    "node-sass": "^3.10.0",
-    "npm-run-all": "^3.1.0",
     "sass-loader": "^4.0.2",
     "sass-resources-loader": "^1.1.0",
     "url-loader": "^0.5.7",
@@ -43,5 +29,22 @@
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-middleware": "^1.8.1",
     "webpack-dev-server": "^2.1.0-beta.0"
+  },
+  "devDependencies": {
+    "cross-env": "^1.0.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-buffer": "^0.0.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-log": "^0.0.0",
+    "gulp-param": "^1.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
+    "npm-run-all": "^3.1.0",
+    "node-sass": "^3.10.1"
   }
 }
