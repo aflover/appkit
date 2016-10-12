@@ -1,6 +1,13 @@
 var autoprefix = require("gulp-autoprefixer"),
-    connect = require("gulp-connect"),
-    gulp = require('gulp'),
+    gulp = require('gulp-npm-run')(require('gulp'), {
+      exclude: ['test'], // the test script is excluded 
+      include: [
+        'build:release',
+        'build:dev',
+        'build:hot',
+      ], // just a helpful description 
+      npmRun: true // rather than `npm run script` gulp runs the script's value / command(s) 
+    }),
     param = require('gulp-param')(gulp, process.argv),
     gutil = require('gulp-util'),
     rename = require('gulp-rename'),
@@ -18,6 +25,11 @@ var paths = {
     scss: [
         "./scss/*.scss",
         "./scss/**/*.scss",
+    ],
+    components: [
+        './components/*',
+        './components/**/*',
+        './webpack.config.js',
     ]
 };
 
@@ -39,17 +51,8 @@ gulp.task("sass", function() {
         // .pipe(sourcemaps.write())
         .on('error', handleSassError)
         // .pipe(autoprefix("last 2 versions"))
-        .pipe(gulp.dest("./dist/css"))
-        // .pipe(connect.reload()) // 不监视了
+        .pipe(gulp.dest("../dist/css"))
         ;
-});
-
-gulp.task("connect", function() {
-    connect.server({
-        root: "dist",
-        port: 8000,
-        livereload: true
-    });
 });
 
 function makeIconSassTask (name) {
@@ -66,7 +69,7 @@ function makeIconSassTask (name) {
                 .pipe(sicon.gulpContentFilter(function (file) {
                     file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
                 }))
-                .pipe(gulp.dest("./scss/components/icons/"))
+                .pipe(gulp.dest("../scss/components/icons/"))
             ;
     }
 }
@@ -92,15 +95,19 @@ gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-fon
 gulp.task("icons", ["icon-font-awesome", "icon-photon"]);
 
 gulp.task("fonts", function(){
-    return gulp.src('./fonts/*').pipe(gulp.dest("./dist/fonts"));
+    return gulp.src('./fonts/*').pipe(gulp.dest("../dist/fonts"));
 });
 
 gulp.task("dev", ["fonts"], function() {
-    // gulp.start("connect");
     gulp.start("sass");
     watch(paths.scss, function(){
         gulp.start('sass');
     });
+    
+    gulp.start('build:dev');
+    watch(paths.components, function () {
+        gulp.start('build:dev');
+    });
 });
 
-gulp.task("default", ['sass', 'fonts']);
+gulp.task("default", ['sass', 'fonts', 'build:release', 'build:dev']);

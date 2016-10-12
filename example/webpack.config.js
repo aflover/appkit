@@ -1,29 +1,17 @@
 var path = require('path')
 var webpack = require('webpack')
-var vueHelper = require('./vueHelper')
 
 module.exports = {
-  entry: './app/boot.js',
+  entry: './boot.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'app.js'
   },
   resolve: {
-    symlinks: true,
-    extensions: ['.js', '.vue',  '.scss'],
-    modules: [
-      "node_modules",
-    ],
     'alias': {
-      'veak': path.resolve(__dirname, '..')
+      'veak': path.resolve(__dirname, '../')
     },
-  },
-  resolveLoader: {
-    modules: [
-      path.resolve(__dirname, './node_modules'),
-      "node_modules",
-    ],
   },
   module: {
     loaders: [
@@ -56,24 +44,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    port: 9090,
+    port: 9000,
   },
   devtool: '#inline-source-map',
-  plugins:[
-     new webpack.LoaderOptionsPlugin({
-       options: {
-          sassLoader: {
-            includePaths: [
-              path.resolve(__dirname, "../scss"),
-              path.resolve(__dirname, "../"),
-            ],
-          },
-          vue: {
-            loaders: vueHelper.cssLoaders()
-          },
-       }
-     })
-  ],
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -86,10 +59,5 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
   ])
 }

@@ -3,12 +3,13 @@ var webpack = require('webpack')
 
 module.exports = {
   entry: {
-    Btn: './components/Btn.vue',
-    CheckBox: './components/CheckBox.vue',
+    'veak': './index.js',
   },
   output: {
+    library: "veak", // string,
+    libraryTarget: "umd", // enum
     path: path.resolve(__dirname, '../dist/js'),
-    filename: '[name].js'
+    filename: process.env.BUILD_RELEASE ? '[name].js' : '[name]-dev.js'
   },
   resolve: {
     extensions: ['.js', '.vue',  '.scss'],
@@ -32,11 +33,6 @@ module.exports = {
   },
   devtool: '#inline-source-map',
   plugins:[
-      // new webpack.optimize.CommonsChunkPlugin({
-      //     name: "commons",
-      //     filename: "commons.js",
-      //     chunks: ["CheckBox", "btn"],
-      // }),
   ],
 }
 
