@@ -1,10 +1,11 @@
 {
-  "name": "appkit-demo",
+  "name": "appkit-src",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "release": "cross-env NODE_ENV=production webpack --hide-modules",
+    "release": "cross-env NODE_ENV=production BUILD_RELEASE=true webpack --hide-modules",
+    "debug": "cross-env NODE_ENV=production webpack --hide-modules",
     "dev": "webpack-dev-server --inline --hot",
     "start": "cross-env APP_STATIC_URL=http://localhost:9090 electron ."
   },
@@ -24,9 +25,23 @@
     "vue-devtools": "^2.0.4",
     "vue-loader": "^9.4.2",
     "vue-router": "^2.0.0-rc.7",
-    "vue-style-loader": "^1.0.0",
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-middleware": "^1.8.1",
-    "webpack-dev-server": "^2.1.0-beta.0"
+    "webpack-dev-server": "^2.1.0-beta.0",
+    "cross-env": "^1.0.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-buffer": "^0.0.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-log": "^0.0.0",
+    "gulp-param": "^1.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
+    "npm-run-all": "^3.1.0",
+    "node-sass": "^3.10.1"
   }
 }

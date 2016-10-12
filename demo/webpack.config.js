@@ -10,17 +10,24 @@ module.exports = {
     filename: 'app.js'
   },
   resolve: {
+    symlinks: true,
     extensions: ['.js', '.vue',  '.scss'],
     modules: [
       "node_modules",
     ],
     'alias': {
-      vue: path.resolve(__dirname, './node_modules/vue'),
+      // vue: path.resolve(__dirname, './node_modules/vue'),
       // 'vue-loader': path.resolve(__dirname, './node_modules/vue-loader'),
       // 'vue-hot-reload-api': path.resolve(__dirname, './node_modules/vue-hot-reload-api'),
       // 'vue-style-loader': path.resolve(__dirname, './node_modules/vue-style-loader'),
       // 'vue-template-compiler': path.resolve(__dirname, './node_modules/vue-template-compiler'),
-    }
+    },
+  },
+  resolveLoader: {
+    modules: [
+      path.resolve(__dirname, './node_modules'),
+      "node_modules",
+    ],
   },
   module: {
     loaders: [
