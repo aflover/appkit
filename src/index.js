@@ -17,7 +17,13 @@ import SimpleTab from './components/SimpleTab.vue'
 import SimpleTable from './components/SimpleTable.vue'
 import FormControl from './components/FormControl.vue'
 
-module.exports = {
+export function install(Vue) {
+	Object.keys(components).forEach((it) => {
+		Vue.component(it, components[it])
+	})
+}
+
+let components = {
 	Btn,
 	CheckBox,
 	Dropdown,
@@ -37,3 +43,11 @@ module.exports = {
 	SimpleTable,
 	FormControl,
 }
+
+Object.defineProperty(components, 'install', {
+	value: install,
+	enumerable : false,
+	configurable : true
+})
+
+export default components

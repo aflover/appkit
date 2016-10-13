@@ -10,7 +10,8 @@ module.exports = {
   },
   resolve: {
     'alias': {
-      'veak': path.resolve(__dirname, '../')
+      // 'veak$': path.resolve(__dirname, '../dist/js/veak.js'), // use release version
+      'veak': path.resolve(__dirname, '../'),
     },
   },
   module: {
@@ -22,7 +23,15 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /veak/, // skip babel-loader
+          // /vue/,  // vue do not need babel-loader
+        ]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css'
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

@@ -3,6 +3,6 @@
   "version": "1.0.1",
   "description": "app components for vue and electron",
   "author": "jetiny <86287344@qq.com>",
-  "main": "dist/js/veak.js",
+  "main": "dist/js/veak-dev.js",
   "license": "MIT"
 }
