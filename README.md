@@ -1,4 +1,4 @@
-# vue-appkit
-app components for vue and electron
+# veak
+app components for vue2 and electron
 
 still in developing
