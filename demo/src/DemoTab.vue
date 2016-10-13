@@ -22,10 +22,6 @@
 </template>
 
 <script type="text/javascript">
-	
-	import SimpleTab from '../../components/SimpleTab'
-	import CheckBox from '../../components/CheckBox'
-
 	export default {
 		data: function () {
 			return {
@@ -41,10 +37,6 @@
 				bordered: true,
 				flex: false,
 			};
-		},
-		components:{
-			SimpleTab,
-			CheckBox,
 		}
 	}
 </script>

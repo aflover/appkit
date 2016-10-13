@@ -9,8 +9,6 @@
 </template>
 
 <script type="text/javascript">
-	import SimpleTable from '../../components/SimpleTable'
-
 	export default {
 		data: function () {
 			return {
@@ -26,9 +24,6 @@
 					{ name: '赵七', age: 10 },
 				]
 			};
-		},
-		components:{
-			SimpleTable,
 		}
 	}
 </script>

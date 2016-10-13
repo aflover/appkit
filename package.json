@@ -2,7 +2,7 @@
   "name": "veak",
   "version": "0.0.1",
   "description": "app components for vue2 and electron",
-  "main": "index.js",
+  "main": "dist/js/veak.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aflover/veak.git"

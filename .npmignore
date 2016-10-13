@@ -1,4 +1,5 @@
+node_modules
+*.log
 /demo
-/node_modules
-/example
+/example/dist
 /src

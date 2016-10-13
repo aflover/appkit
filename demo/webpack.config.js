@@ -1,29 +1,21 @@
 var path = require('path')
-var webpack = require('webpack')
-var vueHelper = require('./vueHelper')
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+var extractCSS = new ExtractTextPlugin('app.css');
 
 module.exports = {
-  entry: './app/boot.js',
+  entry: './src/boot.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '',
     filename: 'app.js'
   },
   resolve: {
-    symlinks: true,
-    extensions: ['.js', '.vue',  '.scss'],
-    modules: [
-      "node_modules",
-    ],
     'alias': {
-      'veak': path.resolve(__dirname, '..')
+      // 'veak$': path.resolve(__dirname, '../dist/js/veak-min.js'), // use min version
+      'veak': path.resolve(__dirname, '../'),
     },
-  },
-  resolveLoader: {
-    modules: [
-      path.resolve(__dirname, './node_modules'),
-      "node_modules",
-    ],
   },
   module: {
     loaders: [
@@ -34,13 +26,22 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /veak/, // skip babel-loader
+          // /vue/,  // vue do not need babel-loader
+        ]
+      },
+      {
+        test: /\.css$/,
+        // loader: 'style!css', // without extract
+        loader: extractCSS.extract(['css'])
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file',
         query: {
-          name: '[name].[ext]?[hash]'
+          name: 'imgs/[name].[ext]?[hash]'
         }
       },
       {
@@ -53,27 +54,10 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    port: 9090,
-  },
   devtool: '#inline-source-map',
   plugins:[
-     new webpack.LoaderOptionsPlugin({
-       options: {
-          sassLoader: {
-            includePaths: [
-              path.resolve(__dirname, "../scss"),
-              path.resolve(__dirname, "../"),
-            ],
-          },
-          vue: {
-            loaders: vueHelper.cssLoaders()
-          },
-       }
-     })
-  ],
+    extractCSS
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -86,10 +70,5 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
   ])
 }

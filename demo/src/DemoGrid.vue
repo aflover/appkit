@@ -15,36 +15,26 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import GridRow from '../../components/GridRow'
-	import GridCol from '../../components/GridCol'
-
 	export default {
 		data: function () {
 			return {
 				gridSize: 12
 			}
-		},
-		components: {
-			GridRow,
-			GridCol,
 		}
 	}
 </script>
 
-<style lang="scss" >
-	.grid-demo {
-		[class*="grid-col-"] {
-			padding: 1px 2px;
-			> span {
-				display: block;
-				text-align: center;
-				background-color: #DCDFE1;
-			}
-		}
-		&.grid-row,
-		&.grid-row-flex,
-		{
-			margin-bottom: 2px;
-		}
+<style>
+	.grid-demo > [class*="grid-col-"] {
+		padding: 1px 2px;
+	}
+	.grid-demo > [class*="grid-col-"]  > span {
+		display: block;
+		text-align: center;
+		background-color: #DCDFE1;
+	}
+	.grid-demo.grid-row,
+	.grid-demo.grid-row-flex {
+		margin-bottom: 2px;
 	}
 </style>

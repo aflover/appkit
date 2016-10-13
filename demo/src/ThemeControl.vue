@@ -4,8 +4,6 @@
 	</form-control>
 </template>
 <script type="text/javascript">
-	import FormControl from '../../components/FormControl.vue'
-	import DropSelect from '../../components/DropSelect.vue'
 	export default {
 		props: {
 			value: {
@@ -29,10 +27,6 @@
 			input: function (value) {
 				this.$emit('input', value);
 			}
-		},
-		components: {
-			FormControl,
-			DropSelect
 		}
 	}
 </script>

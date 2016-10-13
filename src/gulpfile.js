@@ -19,6 +19,7 @@ var autoprefix = require("gulp-autoprefixer"),
     path = require('path'),
     fs = require('fs'),
     sourcemaps = require('gulp-sourcemaps'),
+    cleanCSS = require('gulp-clean-css'),
     sass = require("gulp-sass");
 
 var paths = {
@@ -39,18 +40,22 @@ function handleSassError(err) {
 }
 
 gulp.task("sass", function() {
-    
     var includePaths = [
         path.resolve(__dirname, "scss"),
     ];
-// console.log(includePaths);
-    return gulp.src(paths.scss)
-        // .pipe(sourcemaps.init())
+    return gulp.src('./scss/veak.scss')
+        .pipe(sourcemaps.init())
         .pipe(sass({ includePaths: includePaths}))
-        // .pipe(sourcemaps.write('./dist/css/app.css'))
-        // .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write())
         .on('error', handleSassError)
-        // .pipe(autoprefix("last 2 versions"))
+        .pipe(autoprefix("last 2 versions"))
+        .pipe(gulp.dest("../dist/css"))
+        .pipe(rename(function (path) {
+            path.basename = path.basename + '.min';
+        }))
+        // .pipe(sourcemaps.init())
+        .pipe(cleanCSS())
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest("../dist/css"))
         ;
 });

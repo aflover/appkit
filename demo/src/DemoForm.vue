@@ -32,18 +32,7 @@
 
 <script type="text/javascript">
 	import Vue from 'vue'
-
-	import RadioGroup from '../../components/RadioGroup.vue'
-	import CheckBox from '../../components/CheckBox.vue'
-	import Icon from '../../components/Icon.vue'
-	import PureInput from '../../components/PureInput.vue'
-	import PureSelect from '../../components/PureSelect.vue'
-	import Btn from '../../components/Btn.vue'
-	import DropSelect from '../../components/DropSelect.vue'
-	import DropMenu from '../../components/DropMenu.vue'
-	import FormControl from '../../components/FormControl.vue'
 	import ThemeControl from './ThemeControl.vue'
-
 	export default {
 		  data () {
 		    return {
@@ -96,15 +85,6 @@
 		  	}
 		  },
 		  components: {
-		  	RadioGroup,
-		  	CheckBox,
-		  	Icon,
-		  	PureInput,
-		  	PureSelect,
-		  	Btn,
-		  	DropSelect,
-		  	DropMenu,
-		  	FormControl,
 		  	ThemeControl,
 		  }
 	}

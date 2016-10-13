@@ -15,31 +15,17 @@
 </template>
 
 <script>
-	import FlexWindow from '../../components/FlexWindow.vue'
-	import Flayout from '../../components/Flayout.vue'
-	import NavGroup from '../../components/NavGroup.vue'
 	import RouterLinks from './routerlinks'
-	
 	export default {
 	  data () {
 	    return {
 	    	navs: RouterLinks.navs,
 	    }
-	  },
-	  components: {
-	  	FlexWindow,
-	  	Flayout,
-	  	NavGroup,
 	  }
 	}
 </script>
 
-<style lang="scss">
-	$icon-font-fontawesome-path: 	'../../fonts' !default;
-	$icon-font-photon-path: 	'../../fonts' !default;
-
-	@import "appkit.scss";
-
+<style>
 	#main {
 		overflow-y: auto;
 		flex-grow: 1;

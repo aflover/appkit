@@ -7,7 +7,6 @@
 </template>
 
 <script>
-	import 'veak/dist/css/veak.css'
 	import Veak from 'veak'
 	import Vue from 'vue'
 	Vue.use(Veak) // public

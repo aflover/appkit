@@ -1,3 +1,5 @@
+import 'veak/dist/css/veak.css'
+
 import Vue from 'vue'
 import App from './App.vue'
 
