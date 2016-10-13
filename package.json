@@ -1,8 +1,29 @@
 {
   "name": "veak",
   "version": "0.0.1",
-  "description": "app components for vue and electron",
-  "author": "jetiny <86287344@qq.com>",
-  "main": "dist/js/veak-dev.js",
-  "license": "MIT"
+  "description": "app components for vue2 and electron",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aflover/veak.git"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "electron",
+    "app",
+    "components",
+    "css",
+    "framework",
+    "vuejs"
+  ],
+  "author": {
+    "user": "jetiny",
+    "email": "86287344@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aflover/veak/issues"
+  },
+  "homepage": "https://github.com/aflover/veak#readme"
 }
