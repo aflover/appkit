@@ -15,6 +15,7 @@ module.exports = {
     'alias': {
       // 'veak$': path.resolve(__dirname, '../dist/js/veak-min.js'), // use min version
       'veak': path.resolve(__dirname, '../'),
+      'vue' : path.resolve(__dirname, './node_modules/vue'),
     },
   },
   module: {
@@ -27,7 +28,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: [
-          /node_modules/,
+          // /node_modules/,
           /veak/, // skip babel-loader
           // /vue/,  // vue do not need babel-loader
         ]
@@ -53,6 +54,9 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    publicPath:'/dist/',
   },
   devtool: '#inline-source-map',
   plugins:[

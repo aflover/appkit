@@ -22,10 +22,10 @@
 </template>
 
 <script type="text/javascript">
-	import Btn from './Btn'
-	import Dropdown from './Dropdown'
-	import MenuIter from './MenuIter'
-	import Icon from './Icon'
+	import Btn from './Btn.vue'
+	import Dropdown from './Dropdown.vue'
+	import MenuIter from './MenuIter.vue'
+	import Icon from './Icon.vue'
 	import { propValue } from './util.js'
 	export default {
 		props: {

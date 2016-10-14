@@ -25,9 +25,9 @@
 </template>
 
 <script type="text/javascript">
-	import Btn from './Btn'
-	import Dropdown from './Dropdown'
-	import Icon from './Icon'
+	import Btn from './Btn.vue'
+	import Dropdown from './Dropdown.vue'
+	import Icon from './Icon.vue'
 	import { propValue } from './util.js'
 	export default {
 		props: {
