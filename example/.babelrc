@@ -2,10 +2,4 @@
   "presets": [
     ["es2015", { "modules": false}]
   ],
-  "plugins": [
-    ["transform-es2015-modules-commonjs", {
-      "strict": false,
-      "loose": true,
-    }],
-  ],
 }

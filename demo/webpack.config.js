@@ -27,9 +27,9 @@ module.exports = {
         loader: 'babel',
         exclude: [
           /node_modules/,
-          /veak/, // skip babel-loader
-          /vue/,  // vue do not need babel-loader
-        ]
+          /veak(\.min)?\.js/, // skip babel-loader
+          /^vue$/,  // vue do not need babel-loader
+        ],
       },
       {
         test: /\.css$/,
