@@ -1,12 +1,11 @@
 # veak
 
-Veak is designed as an app components for vue and electron and is still in development 
+Veak is designed as an app components library for vue and electron and is still in development 
 
 ### Using npm
 ```
 npm install veak
 ```
-
 ### Live Demo
 
 [demo](https://aflover.github.io/veak/demo)
