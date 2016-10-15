@@ -15,6 +15,11 @@
     "components",
     "css",
     "framework",
+    "nw",
+    "nwjs",
+    "cef",
+    "cef3",
+    "libcef",
     "vuejs"
   ],
   "author": {
