@@ -1,19 +1,17 @@
 var path = require('path')
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-var extractCSS = new ExtractTextPlugin('app.css');
 
 module.exports = {
   entry: './src/boot.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
-    filename: 'app.js'
+    publicPath: 'dist/',
+    filename: 'js/app.js'
   },
   resolve: {
     'alias': {
-      // 'veak$': path.resolve(__dirname, '../dist/js/veak-min.js'), // use min version
+      // 'veak$': path.resolve(__dirname, '../src'), // use source version
+      // 'veak$': path.resolve(__dirname, '../dist/js/veak.min.js'), // use min version
       'veak': path.resolve(__dirname, '../'),
       'vue' : path.resolve(__dirname, './node_modules/vue'),
     },
@@ -28,40 +26,29 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: [
-          // /node_modules/,
+          /node_modules/,
           /veak/, // skip babel-loader
-          // /vue/,  // vue do not need babel-loader
+          /vue/,  // vue do not need babel-loader
         ]
       },
       {
         test: /\.css$/,
-        // loader: 'style!css', // without extract
-        loader: extractCSS.extract(['css'])
+        loader: 'style!css', // without extract
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
-        query: {
-          name: 'imgs/[name].[ext]?[hash]'
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,
           name: 'fonts/[name].[ext]?'
         }
-      }
+      },
     ]
   },
   devServer: {
     publicPath:'/dist/',
   },
   devtool: '#inline-source-map',
-  plugins:[
-    extractCSS
-  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

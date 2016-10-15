@@ -1,10 +1,10 @@
 {
   "name": "veak-demo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "release": "cross-env NODE_ENV=production webpack --hide-modules",
+    "release": "cross-env NODE_ENV=production webpack --hide-modules -p",
     "dev": "webpack-dev-server --inline --hot --port 9001",
     "start": "cross-env APP_STATIC_URL=http://localhost:9001 electron ."
   },
@@ -14,7 +14,6 @@
     "babel-preset-es2015": "^6.13.2",
     "cross-env": "^3.1.2",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.8.4",
     "url-loader": "^0.5.7",
     "vue": "^2.0.1",

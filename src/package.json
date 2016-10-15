@@ -1,13 +1,11 @@
 {
   "name": "veak",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build:release": "cross-env NODE_ENV=production BUILD_RELEASE=true webpack --hide-modules -p",
-    "build:dev": "cross-env NODE_ENV=production webpack --hide-modules",
-    "build:hot": "webpack-dev-server --inline --hot",
-    "start": "cross-env APP_STATIC_URL=http://localhost:9090 electron ."
+    "build:dev": "cross-env NODE_ENV=production webpack --hide-modules"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

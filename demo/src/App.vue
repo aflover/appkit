@@ -1,8 +1,7 @@
 <template>
 	<flex-window>
 		<flayout id="navbar">
-			<div slot="header" id="nav_header">veak
-			</div>
+			<div slot="header" id="nav_header">veak</div>
 			<div id="navmenu">
 				<nav-group v-for="nav in navs" :title="nav.title" :routers="nav.routers"></nav-group>
 			</div>

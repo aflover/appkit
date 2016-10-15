@@ -7,11 +7,16 @@
 </template>
 
 <script>
+	import 'veak/dist/css/veak.css'
+
+	// public
 	import Veak from 'veak'
-	import Vue from 'vue'
-	Vue.use(Veak) // public
+	// import Vue from 'vue'
+	// Vue.use(Veak) 
+	
 	export default {
-		// components: Veak // or private
+		components: Veak // or private
+		// components: require('veak').default // or private
 	}
 </script>
 

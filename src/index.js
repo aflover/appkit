@@ -51,3 +51,4 @@ Object.defineProperty(components, 'install', {
 })
 
 export default components
+export const  __esModule = true

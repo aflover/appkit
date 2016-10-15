@@ -9,7 +9,8 @@ module.exports = {
     library: "veak", // string,
     libraryTarget: "umd", // enum
     path: path.resolve(__dirname, '../dist/js'),
-    filename: process.env.BUILD_RELEASE ? '[name].min.js' : '[name].js'
+    filename: process.env.BUILD_RELEASE ? '[name].min.js' : '[name].js',
+    // devtoolModuleFilenameTemplate: "veak:///[resource-path]?[loaders]",
   },
   resolve: {
     extensions: ['.js', '.vue',  '.scss'],
@@ -26,7 +27,7 @@ module.exports = {
       }
     ]
   },
-  devtool: '#inline-source-map',
+  devtool: 'source-map',
 }
 
 if (process.env.NODE_ENV === 'production') {

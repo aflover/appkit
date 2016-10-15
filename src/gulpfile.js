@@ -4,7 +4,6 @@ var autoprefix = require("gulp-autoprefixer"),
       include: [
         'build:release',
         'build:dev',
-        'build:hot',
       ], // just a helpful description 
       npmRun: true // rather than `npm run script` gulp runs the script's value / command(s) 
     }),
@@ -39,23 +38,25 @@ function handleSassError(err) {
     this.emit('end');
 }
 
-gulp.task("sass", function() {
-    var includePaths = [
-        path.resolve(__dirname, "scss"),
-    ];
-    return gulp.src('./scss/veak.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({ includePaths: includePaths}))
-        .pipe(sourcemaps.write())
-        .on('error', handleSassError)
-        .pipe(autoprefix("last 2 versions"))
-        .pipe(gulp.dest("../dist/css"))
+gulp.task("sass", ['sass:dev'], function() {
+    return gulp.src('../dist/css/veak.css')
         .pipe(rename(function (path) {
             path.basename = path.basename + '.min';
         }))
-        // .pipe(sourcemaps.init())
         .pipe(cleanCSS())
-        // .pipe(sourcemaps.write())
+        .pipe(gulp.dest("../dist/css"))
+        ;
+});
+
+gulp.task("sass:dev", function() {
+    return gulp.src('./scss/veak.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({ includePaths: [
+            path.resolve(__dirname, "scss"),
+        ]}))
+        .on('error', handleSassError)
+        .pipe(autoprefix("last 2 versions"))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest("../dist/css"))
         ;
 });
