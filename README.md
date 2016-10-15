@@ -1,6 +1,6 @@
 # veak
 
-app components for vue and electron
+Veak is desined as app components for vue and electron and is still in development 
 
 ### Using npm
 ```
@@ -9,7 +9,7 @@ npm install veak
 
 ### Live Demo
 
-[demo](./demo)
+[demo](https://aflover.github.io/veak/demo)
 
 ### Implements Components
 ``` js
@@ -34,4 +34,3 @@ let components = {
 	FormControl,
 }
 ```
-
