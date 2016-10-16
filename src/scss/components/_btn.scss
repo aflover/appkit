@@ -60,4 +60,16 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 			}
 		}
 	}
+
+	// 图标按钮
+	#{$btn-class}.is-tools {
+		border-color: transparent !important;
+	    transition: all .10s ease-in-out;
+	    border-radius: 2px;
+	    transform: scale(1);
+		&:active {
+			border-radius: 50%;
+	    	transform: scale(1.2);
+		}
+	}
 // }

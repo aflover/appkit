@@ -9,7 +9,6 @@ $icon-font-fontawesome-path: 	'../fonts' !default;
 
 // 基础
 @import "components/_base-util.scss";
-@import "components/_size.scss";
 
 // 布局
 @import "components/_flayout.scss";
@@ -43,3 +42,6 @@ $icon-font-fontawesome-path: 	'../fonts' !default;
 
 // 主题
 @import "components/_theme.scss";
+// 尺寸
+@import "components/_size.scss";
+
