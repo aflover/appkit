@@ -1,6 +1,6 @@
 {
   "name": "veak",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "app components for vue2 and electron",
   "main": "dist/js/veak.js",
   "repository": {
