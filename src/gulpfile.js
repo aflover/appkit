@@ -55,7 +55,7 @@ gulp.task("sass:dev", function() {
             path.resolve(__dirname, "scss"),
         ]}))
         .on('error', handleSassError)
-        .pipe(autoprefix("last 5 versions")) // for Safari flex
+        .pipe(autoprefix("last 10 versions")) // for Safari flex
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest("../dist/css"))
         ;
