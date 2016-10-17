@@ -1,6 +1,6 @@
 {
   "name": "Veak",
   "tagline": "app components for vue and electron",
-  "body": "# veak\r\n\r\nVeak is designed as an app components for vue and electron and is still in development \r\n\r\n### Using npm\r\n```\r\nnpm install veak\r\n```\r\n\r\n### Live Demo\r\n\r\n[demo](https://aflover.github.io/veak/demo)\r\n\r\n### Implements Components\r\n``` js\r\nlet components = {\r\n\tBtn,\r\n\tCheckBox,\r\n\tDropdown,\r\n\tDropMenu,\r\n\tDropSelect,\r\n\tFlayout,\r\n\tFlexWindow,\r\n\tGridCol,\r\n\tGridRow,\r\n\tIcon,\r\n\tMenuIter,\r\n\tNavGroup,\r\n\tPureInput,\r\n\tPureSelect,\r\n\tRadioGroup,\r\n\tSimpleTab,\r\n\tSimpleTable,\r\n\tFormControl,\r\n}\r\n```\r\n",
+  "body": "# veak\r\n\r\nVeak is designed as an app components library for vue and electron and is still in development \r\n\r\n### Using npm\r\n```\r\nnpm install veak\r\n```\r\n### Live Demo\r\n\r\n[demo](https://aflover.github.io/veak/demo)\r\n\r\n### Implements Components\r\n``` js\r\nlet components = {\r\n\tBtn,\r\n\tCheckBox,\r\n\tDropdown,\r\n\tDropMenu,\r\n\tDropSelect,\r\n\tFlayout,\r\n\tFlexWindow,\r\n\tGridCol,\r\n\tGridRow,\r\n\tIcon,\r\n\tMenuIter,\r\n\tNavGroup,\r\n\tPureInput,\r\n\tPureSelect,\r\n\tRadioGroup,\r\n\tSimpleTab,\r\n\tSimpleTable,\r\n\tFormControl,\r\n}\r\n```\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
