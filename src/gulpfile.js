@@ -4,6 +4,7 @@ var autoprefix = require("gulp-autoprefixer"),
       include: [
         'build:release',
         'build:dev',
+        'build:demo',
       ], // just a helpful description 
       npmRun: true // rather than `npm run script` gulp runs the script's value / command(s) 
     }),
@@ -101,19 +102,41 @@ gulp.task("icon-font-awesome", ["icon-font-awesome-sass", "icon-font-awesome-fon
 gulp.task("icons", ["icon-font-awesome", "icon-photon"]);
 
 gulp.task("fonts", function(){
-    return gulp.src('./fonts/*').pipe(gulp.dest("../dist/fonts"));
+    return gulp.src('./fonts/*')
+        .pipe(gulp.dest("./demo/dist/fonts"))
+        .pipe(gulp.dest("../dist/fonts"));
 });
 
 gulp.task("dev", ["fonts"], function() {
-    gulp.start("sass");
+    gulp.start("demo:css");
     watch(paths.scss, function(){
-        gulp.start('sass');
+        gulp.start('demo:css');
     });
     
-    gulp.start('build:dev');
+    gulp.start('demo:js');
     watch(paths.components, function () {
-        gulp.start('build:dev');
+        gulp.start('demo:js');
     });
 });
 
+gulp.task("demo:css", ["sass:dev"], function () {
+    return gulp.src('../dist/css/*')
+        .pipe(gulp.dest('./demo/dist/css'))
+})
+
+gulp.task("demo:js", ["build:dev"], function () {
+    return gulp.src('../dist/js/*')
+        .pipe(gulp.dest('./demo/dist/js'))
+})
+
 gulp.task("default", ['sass', 'fonts', 'build:release', 'build:dev']);
+
+gulp.task("demo", ["demo:css", "demo:js", "build:demo"])
+
+gulp.task("gh", function () {
+    return gulp.src([
+            "./demo/index.html",
+            "./demo/dist/**",
+        ])
+        .pipe(gulp.dest("../demo"))
+})

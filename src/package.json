@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:demo": "cd demo && npm run release",
     "build:release": "cross-env NODE_ENV=production BUILD_RELEASE=true webpack --hide-modules -p",
     "build:dev": "cross-env NODE_ENV=production webpack --hide-modules"
   },

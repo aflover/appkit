@@ -28,7 +28,10 @@
 <style>
 	#main {
 		overflow-y: auto;
+		
+		-webkit-flex-grow: 1;
 		flex-grow: 1;
+
 		margin-left: 5px;
 		padding: 10px;
 	}

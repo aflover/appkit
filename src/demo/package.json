@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "release": "cross-env NODE_ENV=production webpack --hide-modules -p",
+    "debug": "cross-env NODE_ENV=production webpack --hide-modules",
     "dev": "webpack-dev-server --inline --hot --port 9001",
     "start": "cross-env APP_STATIC_URL=http://localhost:9001 electron ."
   },

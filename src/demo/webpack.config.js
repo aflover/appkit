@@ -10,9 +10,6 @@ module.exports = {
   },
   resolve: {
     'alias': {
-      // 'veak$': path.resolve(__dirname, '../src'), // use source version
-      // 'veak$': path.resolve(__dirname, '../dist/js/veak.min.js'), // use min version
-      'veak': path.resolve(__dirname, '../'),
       'vue' : path.resolve(__dirname, './node_modules/vue'),
     },
   },
