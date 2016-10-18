@@ -138,5 +138,5 @@ gulp.task("gh", function () {
             "./demo/index.html",
             "./demo/dist/**",
         ])
-        .pipe(gulp.dest("../demo"))
+        .pipe(gulp.dest("../tmp"))
 })
