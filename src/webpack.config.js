@@ -6,7 +6,7 @@ module.exports = {
     'veak': './index.js',
   },
   output: {
-    library: "veak", // string,
+    library: "Veak", // string,
     libraryTarget: "umd", // enum
     path: path.resolve(__dirname, '../dist/js'),
     filename: process.env.BUILD_RELEASE ? '[name].min.js' : '[name].js',

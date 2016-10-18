@@ -124,7 +124,7 @@ gulp.task("demo:css", ["sass:dev"], function () {
         .pipe(gulp.dest('./demo/dist/css'))
 })
 
-gulp.task("demo:js", ["build:dev"], function () {
+gulp.task("demo:js", ["build:release"], function () {
     return gulp.src('../dist/js/*')
         .pipe(gulp.dest('./demo/dist/js'))
 })
