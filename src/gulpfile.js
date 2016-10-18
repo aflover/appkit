@@ -133,10 +133,16 @@ gulp.task("default", ['sass', 'fonts', 'build:release', 'build:dev']);
 
 gulp.task("demo", ["demo:css", "demo:js", "build:demo"])
 
-gulp.task("gh", function () {
+gulp.task("gh:dist", function () {
+    return gulp.src([
+            "./demo/dist/**",
+        ])
+        .pipe(gulp.dest("../tmp/dist"))
+})
+
+gulp.task("gh", ["gh:dist"], function () {
     return gulp.src([
             "./demo/index.html",
-            "./demo/dist/**",
         ])
         .pipe(gulp.dest("../tmp"))
 })
