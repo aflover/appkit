@@ -66,9 +66,11 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 		border-color: transparent !important;
 	    transition: all .10s ease-in-out;
 	    border-radius: 2px;
+	    -webkit-transform: scale(1);
 	    transform: scale(1);
 		&:active {
 			border-radius: 50%;
+	    	-webkit-transform: scale(1.2);
 	    	transform: scale(1.2);
 		}
 	}

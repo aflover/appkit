@@ -21,10 +21,12 @@ $radio-disabled-bg-color	: $default-disabled-bg-color !default;
 			// 选中
 			&:checked + .radio-text::after {
 				background-color: $radio-bd-color;
+				-webkit-transform: scale(0.5);
 				transform: scale(0.5);
 			}
 			// 获得焦点
 			&:focus + .radio-text::before {
+				-webkit-transform: scale(1.1); 
 				transform: scale(1.1); 
 			}
 			// 禁用
@@ -55,6 +57,7 @@ $radio-disabled-bg-color	: $default-disabled-bg-color !default;
 	            border-color: $radio-bd-color;
 	        }
 	        &::after {
+	            -webkit-transform: scale(0);
 	            transform: scale(0);
 	        }
 		}

@@ -20,6 +20,7 @@
     top: .15em;
     min-height: 8px;
     content: '';
+    -webkit-transform: rotate(-55deg);
     transform: rotate(-55deg);
     box-sizing: border-box;
 }
@@ -34,7 +35,9 @@
     top: -.15em;
     content: '';
     border-radius: 2px;
+    -webkit-transform: rotate(43deg);
     transform: rotate(43deg);
+    -webkit-transition: all 0.3s;
     transition: all 0.3s;
     box-sizing: border-box;
 }
@@ -54,8 +57,14 @@
         height: .2em;
         background-color: $color;
     }
-    &::before { transform: rotate(45deg); }
-    &::after { transform: rotate(-45deg); }
+    &::before { 
+        -webkit-transform: rotate(45deg); 
+        transform: rotate(45deg); 
+    }
+    &::after { 
+        -webkit-transform: rotate(-45deg); 
+        transform: rotate(-45deg); 
+    }
 }
 
 @mixin make-icon-wrap() { // 特殊ICON容器

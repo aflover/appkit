@@ -9,7 +9,9 @@
 
 @mixin make-window-flex() { // flex 高度自动填充
     box-sizing: border-box; // 盒模型
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     height: 100%;
 }
@@ -17,7 +19,9 @@
 @mixin make-window-content() { // 父容器需要flex支持, 内容区使用 flex填充
     position: relative;
     overflow: hidden;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex: 1;
     flex: 1;
 }
 

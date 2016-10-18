@@ -51,7 +51,13 @@ $icon-inline-selector       : span !default;                            // inlin
     }
     // 三角箭头翻转
     .is-open {
-        #{$icon-class}-caret:after { transform: rotate(180deg) translateY(50%); }
-        #{$icon-class}-arrow:after { transform: rotate(-133deg) translateX(-40%) translateY(-29%); }
+        #{$icon-class}-caret:after { 
+            -webkit-transform: rotate(180deg) translateY(50%); 
+            transform: rotate(180deg) translateY(50%); 
+        }
+        #{$icon-class}-arrow:after { 
+            -webkit-transform: rotate(-133deg) translateX(-40%) translateY(-29%); 
+            transform: rotate(-133deg) translateX(-40%) translateY(-29%); 
+        }
     }
 // }
