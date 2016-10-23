@@ -1,6 +1,6 @@
 <template>
 	<button 
-		:class="['btn', tick && 'btn-meta-tick', disabled && 'is-disabled', theme && theme]"
+		:class="['btn', tick && 'is-tick', disabled && 'is-disabled', theme && theme]"
 		:disabled="disabled"
 		@click="$emit('click', $event)"
 		><slot></slot></button>
@@ -16,7 +16,7 @@
 			},
 			tick: {
 				type: Boolean,
-				default: true,
+				default: false,
 			},
 			onClick: {
 				type: Function,

@@ -1,10 +1,11 @@
 <template>
-	<input 
+	<textarea
 		:type="type" 
 		:class="['input', theme && theme ]" 
 		:value="value" 
 		:disabled="disabled"
-	/>
+		@change="$emit('input', $event.target.value)"
+	></textarea> 
 </template>
 
 <script>

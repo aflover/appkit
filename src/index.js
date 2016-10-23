@@ -11,6 +11,7 @@ import Icon from './components/Icon.vue'
 import MenuIter from './components/MenuIter.vue'
 import NavGroup from './components/NavGroup.vue'
 import PureInput from './components/PureInput.vue'
+import PureText from './components/PureText.vue'
 import PureSelect from './components/PureSelect.vue'
 import RadioGroup from './components/RadioGroup.vue'
 import SimpleTab from './components/SimpleTab.vue'
@@ -37,6 +38,7 @@ let components = {
 	MenuIter,
 	NavGroup,
 	PureInput,
+	PureText,
 	PureSelect,
 	RadioGroup,
 	SimpleTab,

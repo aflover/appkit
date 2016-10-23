@@ -51,7 +51,7 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 	}
 
 	// 按下移动效果
-	#{$btn-class}.meta-tick {
+	#{$btn-class}.is-tick {
 		&:not(:disabled):not(.is-disabled) {
 			top: 0;
 			&:active {
@@ -72,6 +72,9 @@ $btn-active-cursor		: $default-active-cursor !default;		// 光标
 			border-radius: 50%;
 	    	-webkit-transform: scale(1.2);
 	    	transform: scale(1.2);
+		}
+		> i {
+			width: 1em;
 		}
 	}
 // }

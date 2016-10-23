@@ -4,6 +4,7 @@
 			<div 
 				v-for="it in tabs"
 				:class="['tab-title', (it.value == value) && 'is-selected']" 
+				@mouseenter="mouse && $emit('input', it.value)"
 				@click="$emit('input', it.value)">
 				{{it.title}}
 			</div>
@@ -34,6 +35,10 @@
 			classes: {
 				type: Array,
 				default: propValue(Array),
+			},
+			mouse: {
+				type: Boolean,
+				default: false,
 			}
 		}
 	}

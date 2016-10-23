@@ -37,7 +37,7 @@ $drop-select-item-padding		: 1.5em !default;
 			background-color: $drop-select-item-active-bg-color;
 		}
 		&.is-checked {
-			padding-right: max($drop-select-item-padding, 2em);
+			padding-right: max($drop-select-item-padding, 2em) !important;
 			 &::before { // 选中
 				@include make-icon-right($drop-select-bd-color);
 				top: .5em;

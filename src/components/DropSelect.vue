@@ -2,18 +2,21 @@
 	<dropdown 
 		:open="isOpen"
 		@mouseleave.native="mouse && (isOpen = false)"
+		:class="dropdownTheme"
 		>
 		<btn
+			:theme="btnTheme"
 			@click="isOpen = !isOpen"
 			@mouseenter.native="mouse && (isOpen = true)"
 			slot="control"
+			:tabindex="tabindex"
 			>
 			<span>{{displayText}}</span>
-			<icon :meta="arrow ? 'icon-arrow' : 'icon-caret'" :theme="theme"></icon>
+			<icon v-if="!hideArrow" :meta="arrow ? 'icon-arrow' : 'icon-caret'" :theme="theme"></icon>
 		</btn>
 		<ul :class="['drop-select', 'dropdown-view', theme && theme]">
 			<li v-for="item in options"
-				@click="select(item)"
+				@click="selectItem(item)"
 				:class="['drop-select-item', 
 					item[fields.disabled] && 'is-disabled',
 					item[fields.value] === value && ( (active && 'is-active') || (check && 'is-checked') )]"
@@ -74,6 +77,30 @@
 				type: String,
 				default: '',
 			},
+			select: {
+				type: Array,
+				default: propValue(Array),
+			},
+			tabindex: {
+				type: Number,
+				default: 0
+			},
+			btnTheme: {
+				type: String,
+				default: '',
+			},
+			dropdownTheme: {
+				type: String,
+				default: ''
+			},
+			fixedText: {
+				type: Boolean,
+				default: false
+			},
+			hideArrow: {
+				type: Boolean,
+				default: false,
+			}
 		},
 		data: function () {
 			return {
@@ -82,17 +109,22 @@
 		},
 		computed: {
 			displayText: function () {
-				var item = this.itemByValue(this.value);
-				if (item) {
-					return item[this.fields.text];
+				if (!this.fixedText) {
+					var item = this.itemByValue(this.value);
+					if (item) {
+						return item[this.fields.text];
+					}
 				}
 				return this.text;
 			}
 		},
 		methods: {
-			select: function (item) {
-				this.$emit('input', item[this.fields.value], item); 
+			selectItem: function (item) {
 				this.isOpen = false;
+				this.$emit('input', item[this.fields.value], item); 
+				if (this.select.length) {
+					this.select[0](this.select[1], item[this.fields.value], item)
+				}
 			},
 			itemByValue: function (value) {
 				var self = this;
