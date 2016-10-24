@@ -1,6 +1,7 @@
 @import "components-mixins/size-control.scss";
 
 //@VAR tab
+$tab-panel-class		: '.#{$default-prefix}tab-panel' !default;
 $tab-nav-class			: '.#{$default-prefix}tab-nav' !default;
 $tab-container-class	: '.#{$default-prefix}tab-container' !default;
 $tab-bd-radius			: $default-bd-radius !default;
@@ -11,9 +12,39 @@ $tab-title-radius		: 4px !default;									// 标题圆角
 $tab-offseted-margin	: 10px !default;								// 偏移尺寸
 $tab-pad-size			: $default-pad-size !default; 			  		// 补白
 $tab-bg-color			: $default-bg-color !default; 			  		// 容器背景颜色
+$tab-bd-color			: $default-bd-color !default; 			  		// 容器背景颜色
 
 $tab-active-cursor		: $default-active-cursor !default;
 //!VAR tab
+//!
+#{$tab-panel-class} {
+	background-color: $tab-bg-color;
+	&.dropdown-view {
+		> #{$tab-nav-class} {
+			border: 1px solid $tab-bd-color;
+			border-bottom: 0;
+			>.tab-title {
+				border-color: transparent;
+			    border-radius: 0;
+			    border-bottom-width: 2px;
+			    &.is-selected {
+			    	background-color: #eaeaea;
+			    }
+			}
+			&.is-titled {
+				>.tab-title {
+					border-top: 0;
+					&.is-selected {
+						border-bottom-color: $tab-primary-color;
+					}
+				}
+			}
+			&.is-bordered + #{$tab-container-class} > .tab-content {
+				box-shadow: 0 6px 12px rgba(0,0,0,.175);
+			}
+		}
+	}
+}
 
 #{$tab-container-class} { // 容器
 	> .tab-content {
