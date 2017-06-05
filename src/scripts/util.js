@@ -18,7 +18,11 @@ function matchIcon(prefix, input) {
 
 function replaceIcon(mat, prefix, after) {
 	return mat.map(function(it){
-		return '.' + prefix + it[0] + ':' + (after ? 'after' : 'before') + ' { content: "' + it[1] +'" }';
+    // .fa-glass:before { content: "\f000" }
+    // return '.' + prefix + it[0] + ':' + (after ? 'after' : 'before') + ' { content: "' + it[1] +'" }';
+    //  .fa-glass:before
+    //    content: ""
+		return '  .' + prefix + it[0] + ':' + (after ? 'after' : 'before') + '\n    content: "' + it[1] +'"';
 	}).join('\n');
 }
 

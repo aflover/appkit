@@ -1,0 +1,115 @@
+@import components-mixins/_size-control
+@import mixins/_clearfix
+
+=make-text-select($sel: true, $cur: default)
+  // 文本可选择性
+  @if $sel == true
+    cursor: text
+    user-select: text
+  @else
+    cursor: $cur
+    user-select: none
+
+// 基础辅助功能 主要用于覆盖和全局控制，一般具有高权重
+//------------------------------------------------------- 浮动
+=make-base-float
+  .clearfix
+    +clearfix
+
+  .float-left
+    float: left !important
+
+  .float-right
+    float: right !important
+
+//------------------------------------------------------- 文本
+=make-base-text
+  .text-center
+    text-align: center !important
+
+  .text-left
+    text-align: left !important
+
+  .text-right
+    text-align: right !important
+
+  .text-selectable
+    +make-text-select
+
+  .text-noselectable
+    +make-text-select(false)
+
+//------------------------------------------------------- 边框
+=make-base-border
+  .border-hidden
+    border-color: transparent !important
+
+  .border-none
+    border-width: 0 !important
+
+  .border-hidden-vertical
+    border-top-color: transparent !important
+    border-bottom-color: transparent !important
+
+  .border-none-vertical
+    border-top-width: 0 !important
+    border-bottom-width: 0 !important
+
+//------------------------------------------------------- flex 对齐方式
+=make-base-flex
+  .flex-start
+    // x轴原点 左对齐
+    display: flex
+    justify-content: flex-start !important
+
+  .flex-center
+    // x轴居中 居中对齐
+    display: flex
+    justify-content: center !important
+
+  .flex-end
+    // x轴结束点 右对齐
+    display: flex
+    justify-content: flex-end !important
+
+  .flex-space-between
+    // x轴平铺 中间补空
+    display: flex
+    justify-content: space-between !important
+
+  .flex-space-around
+    // x轴平铺 元素居中
+    display: flex
+    justify-content: space-around !important
+
+//------------------------------------------------------- 字体
+=make-base-font-size
+  .font-default
+    +make-font-size-default
+
+  .font-sm
+    +make-font-size-sm
+
+  .font-lg
+    +make-font-size-lg
+
+//------------------------------------------------------- 内补白
+=make-base-pad
+  .pad-default
+    +make-pad-default
+
+  .pad-lg
+    +make-pad-lg
+
+  .pad-sm
+    +make-pad-sm
+
+// @mixin make-base-util() {
++make-base-float
++make-base-text
++make-base-border
++make-base-flex
++make-base-font-size
++make-base-pad
+
+// }

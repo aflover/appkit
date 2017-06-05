@@ -13,17 +13,17 @@ module.exports = {
     // devtoolModuleFilenameTemplate: "veak:///[resource-path]?[loaders]",
   },
   resolve: {
-    extensions: ['.js', '.vue',  '.scss'],
+    extensions: ['.js', '.vue',  '.sass'],
   },
   module: {
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
       }
     ]
   },

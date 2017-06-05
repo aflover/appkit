@@ -1,0 +1,20 @@
+@import components-mixins/_size-control
+
+//@VAR label
+$label-class: ".#{$default-prefix}label" !default
+$label-cursor: $default-active-cursor !default
+
+// 光标
+//!VAR label
+
+// @mixin make-base-label() {
+#{$label-class}
+  +make-size-default
+
+  border: 1px solid transparent
+  vertical-align: middle
+  user-select: none
+  -webkit-user-select: none
+  cursor: $label-cursor
+
+// }

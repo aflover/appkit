@@ -1,0 +1,38 @@
+=make-layout-window-flex
+  // html高度填充
+  height: 100%
+
+  body
+    height: 100%
+    margin: 0
+
+=make-window-flex
+  // flex 高度自动填充
+  box-sizing: border-box
+
+  // 盒模型
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-direction: column
+  flex-direction: column
+  height: 100%
+
+=make-window-content
+  // 父容器需要flex支持, 内容区使用 flex填充
+  position: relative
+  overflow: hidden
+  display: -webkit-flex
+  display: flex
+  -webkit-flex: 1
+  flex: 1
+
+html.flex-window
+  +make-layout-window-flex
+
+  .window-container
+    // 容器
+    +make-window-flex
+
+    .window-content
+      // 客户区
+      +make-window-content

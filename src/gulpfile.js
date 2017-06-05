@@ -23,9 +23,9 @@ var autoprefix = require("gulp-autoprefixer"),
     sass = require("gulp-sass");
 
 var paths = {
-    scss: [
-        "./scss/*.scss",
-        "./scss/**/*.scss",
+    sass: [
+        "./sass/*.sass",
+        "./sass/**/*.sass",
     ],
     components: [
         './components/*',
@@ -50,10 +50,10 @@ gulp.task("sass", ['sass:dev'], function() {
 });
 
 gulp.task("sass:dev", function() {
-    return gulp.src('./scss/veak.scss')
+    return gulp.src('./sass/veak.sass')
         .pipe(sourcemaps.init())
         .pipe(sass({ includePaths: [
-            path.resolve(__dirname, "scss"),
+            path.resolve(__dirname, "sass"),
         ]}))
         .on('error', handleSassError)
         // .pipe(autoprefix("last 6 versions")) // for Safari flex
@@ -70,13 +70,13 @@ function makeIconSassTask (name) {
         return gulp.src(item.cssFile)
                 .pipe(rename(function (path) {
                     path.basename = '_icons-' + path.basename;
-                    path.extname = ".scss"
+                    path.extname = ".sass"
                 }))
                 .pipe(buffer())
                 .pipe(sicon.gulpContentFilter(function (file) {
                     file.contents = new Buffer(item.toSass(file.contents.toString('utf8')));
                 }))
-                .pipe(gulp.dest("../scss/components/icons/"))
+                .pipe(gulp.dest("./sass/components/icons/"))
             ;
     }
 }
@@ -109,7 +109,7 @@ gulp.task("fonts", function(){
 
 gulp.task("dev", ["fonts"], function() {
     gulp.start("demo:css");
-    watch(paths.scss, function(){
+    watch(paths.sass, function(){
         gulp.start('demo:css');
     });
     

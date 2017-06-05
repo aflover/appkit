@@ -12,7 +12,7 @@ var configs = {
 		prefixFrom: 'icon',
 		prefixTo: 'pt',
 		name: 'photon',
-		htmlFile : 'docs-demo/src/components/IconPhoton.vue',
+		htmlFile : 'demo/src/DemoPhoton.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	},
 	'font-awesome' : {
@@ -22,7 +22,7 @@ var configs = {
 		prefixFrom: 'fa',
 		prefixTo: 'fa',
 		name: 'font-awesome',
-		htmlFile : 'docs-demo/src/components/IconFontAwesome.vue',
+		htmlFile : 'demo/src/DemoFontAwesome.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	}
 }
@@ -55,7 +55,7 @@ function resolve (config) {
 			html = util.replaceHtmlBlock(html, mat, config.prefixTo, config.htmlFormat);
 			fs.writeFileSync(config.htmlFile, html);
 			var sassText =  util.replaceIcon(mat, config.prefixTo);
-			sassText = '@mixin make-icons-' + config.name + '() {\r\n' + sassText + '\r\n}';
+			sassText = '=make-icons-' + config.name + '\r\n' + sassText + '\r\n';
 			return sassText;
 		},
 		fontsDir : fontsDir,

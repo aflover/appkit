@@ -1,0 +1,96 @@
+@import components-mixins/_size-control
+
+//@VAR btn
+$btn-class: ".#{$default-prefix}btn" !global !default
+
+$btn-default-bd-color: $default-bd-color !default
+
+// 边框颜色
+$btn-default-bg-color: $default-bg-color !default
+
+// 背景颜色
+$btn-disabled-bg-color: $default-disabled-bg-color !default
+
+// 禁用色
+
+$btn-bd-radius: $default-bd-radius !default
+
+// 边角
+$btn-active-cursor: $default-active-cursor !default
+
+// 光标
+
+//!VAR btn
+
+// @mixin make-base-btn() {
+#{$btn-class}
+  position: relative
+
+  // 需要设成相对的, 方便内嵌或定位
+  display: inline-block
+
+  // 块定义
+  text-decoration: none
+
+  // 去除A下划线
+  outline: none
+
+  // 去除默认焦点
+  border: 1px solid transparent
+
+  // 去除 Button的默认边框样式 + 去除 Border宽度
+  user-select: none
+
+  // 不可选
+  -webkit-user-select: none
+  -moz-user-select: none
+  vertical-align: middle
+
+  +make-size-default
+
+  cursor: $btn-active-cursor
+  background-color: $btn-default-bg-color
+  border-color: $btn-default-bd-color
+  border-radius: $btn-bd-radius
+
+  &:hover,
+  &:focus
+    background-color: darken($btn-default-bg-color, 5)
+
+  &.is-selected,
+  &:active
+    background-color: darken($btn-default-bg-color, 10)
+
+  &.is-disabled,
+  &:disabled
+    cursor: default
+    background-color: $btn-disabled-bg-color !important
+    color: darken($btn-disabled-bg-color, 30) !important
+    border-color: darken($btn-disabled-bg-color, 15) !important
+
+// 按下移动效果
+#{$btn-class}.is-tick
+  &:not(:disabled):not(.is-disabled)
+    top: 0
+
+    &:active
+      top: 1px
+      left: 1px
+
+// 图标按钮
+#{$btn-class}.is-tools
+  border-color: transparent !important
+  transition: all 0.1s ease-in-out
+  border-radius: 2px
+  -webkit-transform: scale(1)
+  transform: scale(1)
+
+  &:active
+    border-radius: 50%
+    -webkit-transform: scale(1.2)
+    transform: scale(1.2)
+
+  > i
+    width: 1em
+
+// }

@@ -1,0 +1,76 @@
+@import components-mixins/_size-control
+@import mixins/clearfix
+@import mixins/make-icons
+
+//@VAR drop-select
+$drop-select-class: ".#{$default-prefix}drop-select" !default
+$drop-select-item-class: ".drop-select-item" !default
+
+$drop-select-bd-radius: $default-bd-radius !default
+$drop-select-bd-color: $default-bd-color !default
+$drop-select-bg-color: $default-bg-color !default
+$drop-select-item-active-bg-color: $default-active-bg-color !default
+$drop-select-item-hover-bg-color: $default-hover-bg-color !default
+$drop-select-item-disabled-bg-color: $default-disabled-bg-color !default
+$drop-select-active-cursor: $default-active-cursor !default
+$drop-select-item-padding: 1.5em !default
+
+//!VAR drop-select
+
+// @mixin make-drop-select() {
+// 菜单项
+#{$drop-select-item-class}
+  +make-size-default
+
+  position: relative
+  white-space: nowrap
+  user-select: none
+  -webkit-user-select: none
+  cursor: $drop-select-active-cursor
+  background-color: $drop-select-bg-color
+  padding-left: $drop-select-item-padding
+  padding-right: $drop-select-item-padding
+
+  &:focus,
+  &:hover
+    background-color: $drop-select-item-hover-bg-color
+
+  &.is-active
+    background-color: $drop-select-item-active-bg-color
+
+  &.is-checked
+    padding-right: max($drop-select-item-padding, 2em) !important
+
+    &::before
+      // 选中
+      +make-icon-right($drop-select-bd-color)
+
+      top: 0.5em
+      right: 0.5em
+
+  &.is-disabled
+    cursor: default
+    color: darken($drop-select-item-disabled-bg-color, 30)
+    background-color: transparent
+
+// 菜单列表容器
+#{$drop-select-class}
+  // 容器
+  background-color: $drop-select-bg-color
+  border-radius: $drop-select-bd-radius
+  border: 1px solid $drop-select-bd-color
+
+  // 列表
+  display: inline-block
+  list-style: none
+  margin: 0
+  padding: 0
+
+  // 滚动
+  overflow-y: auto
+  max-height: 15em
+
+  // 阴影
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+
+// }
